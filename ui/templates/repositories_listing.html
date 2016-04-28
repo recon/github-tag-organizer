@@ -1,0 +1,36 @@
+<div class="card card-success" ng-controller="Repositories">
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title"><i class="fa fa-comments-o"></i> Repositories</div>
+        </div>
+        <div class="clear-both"></div>
+    </div>
+    <div class="card-body no-padding">
+        <ul class="message-list" ng-if="repositories.length > 0">
+            <li ng-repeat="repository in repositories"
+                ng-class="{active: repository.id == shared.repository.id}">
+                <a ng-click="selectRepository(repository)">
+                    <div class="message-block">
+                        <span class="username">{{repository.full_name}}</span>
+                        <span class="message-datetime">{{repository.watchers}}</span>
+                        <div class="clearfix"></div>
+                        <div class="message">{{repository.description}}</div>
+
+                        <span class="label label-tag label-info"
+                              ng-repeat="tag in repository._user_tags"
+                              ng-if="tag != 'default'">
+                            {{tag}}
+                        </span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card-body" ng-if="repositories.length == 0">
+        <div class="bs-callout bs-callout-info">
+            <i class="fa fa-info-circle"></i>
+            &nbsp;<strong>There are no repositories here</strong>
+        </div>
+    </div>
+</div>

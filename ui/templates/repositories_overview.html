@@ -1,0 +1,55 @@
+<div ng-controller="Overview">
+    <div class="card card-success readme-overview" ng-if="shared.readmeContent">
+        <div class="card-header">
+            <div class="card-title">
+                <div class="title"><i class="fa fa-comments-o"></i> {{shared.repository.full_name}}</div>
+            </div>
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="card-body bs-callout bs-callout-info">
+            <span class="label label-tag label-info"
+                  ng-repeat="tag in shared.repository._user_tags"
+                  ng-if="tag != 'default'">
+                {{tag}}
+            </span>
+
+            &nbsp;
+
+            <button class="btn btn-default btn-xs" ng-click="showTagEditor()" ng-if="!tagEditorVisible">
+                Edit tags
+                <i class="fa fa-plus-square"></i>
+            </button>
+
+            <div class="clearfix"></div>
+
+            <div class="select-tag-container" ng-show="tagEditorVisible">
+                <select class="select-tag block"
+                        multiple="multiple"
+                        ng-model="repositoryTags"
+                        ng-options="tag.name for tag in tags track by tag.name"
+                        style="width: 100%;">
+                </select>
+            </div>
+        </div>
+
+        <div class="card-body" ng-bind-html="shared.readmeContent|unsafe"></div>
+    </div>
+
+    <div class="card card-success" ng-if="!shared.readmeContent">
+        <div class="card-header">
+            <div class="card-title">
+                <div class="title"><i class="fa fa-comments-o"></i> Readme</div>
+            </div>
+            <div class="clear-both"></div>
+        </div>
+
+        <div class="card-body">
+            <div class="bs-callout bs-callout-info">
+                <i class="fa fa-info-circle"></i>
+                &nbsp;
+                <strong>Select a repository from the left</strong>
+            </div>
+        </div>
+    </div>
+</div>

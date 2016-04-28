@@ -1,0 +1,67 @@
+<div class="side-menu sidebar-inverse"
+     ng-controller="Sidebar">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="side-menu-container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <div class="icon fa fa-paper-plane"></div>
+                    <div class="title">GitHub Tag Organizer</div>
+                </div>
+                <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+                    <i class="fa fa-times icon"></i>
+                </button>
+            </div>
+
+            <form class="form-inline panel panel-default frm-add-tag"
+                  text-center ng-show="addTagFormIsVisible">
+                <div class="form-group">
+                    <input class="form-control input-sm"
+                           placeholder="write your tag..."
+                           type="text"
+                           ng-model="tagFormData.name">
+                </div>
+                <button type="submit"
+                        class="btn btn-sm btn-default"
+                        ng-click="saveNewTag()">
+                    <i class="fa fa-disk"></i> Add
+                </button>
+
+                <div class="clearfix"></div>
+            </form>
+
+            <button role="button"
+                    class="btn btn-info btn-block"
+                    ng-show="!addTagFormIsVisible"
+                    ng-click="toggleAddTagForm()">
+                <i class="fa fa-plus"></i> Add a tag
+            </button>
+
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: shared.tag.name == 'default'}">
+                    <a ng-click="selectTag({name: 'default'})">
+                        <span class="icon fa fa-exclamation-triangle"></span>
+                        <span class="title">no tags</span>
+                        <span class="badge pull-right">n/a</span>
+                    </a>
+                </li>
+                <li ng-repeat="tag in tags | orderBy:'name'"
+                    ng-class="{active: shared.tag.name == tag.name}">
+                    <a ng-click="selectTag(tag)">
+                        <span class="icon fa fa-tag"></span>
+                        <span class="title">{{tag.name}}</span>
+                        <span class="badge pull-right">{{tag.count}}</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="clearfix"></div>
+
+            <div class="alert alert-info"
+                 ng-if="!tags.length">
+                <p>
+                    <i class="fa fa-info-circle"></i> No tags added
+                </p>
+            </div>
+        </div>
+    </nav>
+</div>
