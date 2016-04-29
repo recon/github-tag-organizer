@@ -72,6 +72,23 @@
         });
     });
 
+    app.run(function ($rootScope) {
+        $rootScope.$on('data-sync-started', function () {
+            toastr.options.timeOut = 0;
+            toastr.options.extendedTimeOut = 0;
+            toastr.options.tapToDismiss = false;
+            toastr.options.positionClass = 'toast-bottom-right';
+            toastr.info('Refreshing starred repositories', 'Synchronization started')
+        });
+        $rootScope.$on('data-sync-finished', function () {
+            toastr.clear();
+            toastr.options.timeOut = 5000;
+            toastr.options.fadeOut = 250;
+            toastr.options.fadeIn = 250;
+            toastr.info('Finished refreshing starred repositories', 'Synchronization completeted')
+        });
+    });
+
     app.factory("CustomServerErrorHttpInterceptor", function ($q) {
         return {
             response: function (response) {

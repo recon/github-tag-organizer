@@ -521,21 +521,21 @@ a:hover {
     .navbar {
         padding-left: 0;
     }
-    
+
     .navbar .navbar-header {
         width: auto;
         display: block;
     }
-    
+
     .navbar .navbar-nav {
         width: auto;
         margin: 0;
     }
-    
+
     .navbar .navbar-nav > li {
         display: inline-block;
     }
-    
+
     .navbar .navbar-right {
         position: absolute;
         top: 0;
@@ -546,42 +546,42 @@ a:hover {
         -webkit-transition: all 0.25s linear;
         transition: all 0.25s linear;
     }
-    
+
     .navbar .navbar-right .open .dropdown-menu {
         position: absolute;
     }
-    
+
     .navbar .navbar-right.expanded {
         right: 0;
     }
-    
+
     .app-container .navbar-top {
         min-width: 300px;
     }
-    
+
     .app-container .content-container .side-menu {
         margin-left: -250px;
         width: 0px;
     }
-    
+
     .app-container .content-container .side-body {
         margin-left: 10px;
     }
-    
+
     .app-container.expanded .navbar-top {
         min-width: 480px;
         padding-left: 0px;
     }
-    
+
     .app-container.expanded .side-menu {
         margin-left: 0px;
         width: 250px;
     }
-    
+
     .app-container.expanded .side-body {
         margin-left: 10px;
     }
-    
+
     .app-container .app-footer .wrapper, .app-container.expanded .app-footer .wrapper {
         padding-left: 25px;
     }
@@ -904,7 +904,7 @@ body.login-page .login-footer {
     body.login-page .login-form .login-header {
         margin-bottom: 1em;
     }
-    
+
     body.login-page .login-box {
         width: 100%;
         max-width: 260px;
@@ -1262,7 +1262,7 @@ body.login-page .login-footer {
     .step .nav-tabs > li:after {
         display: none;
     }
-    
+
     .step .nav-tabs > li:before {
         display: none;
     }
@@ -1714,24 +1714,24 @@ body.login-page .login-footer {
         padding-right: 15px;
         padding-left: 15px;
     }
-    
+
     .navbar-wrapper .navbar {
         padding-right: 0;
         padding-left: 0;
     }
-    
+
     /* The navbar becomes detached from the top, so we round the corners */
     .navbar-wrapper .navbar {
         border-radius: 4px;
     }
-    
+
     /* Bump up size of carousel content */
     .carousel-caption p {
         margin-bottom: 20px;
         font-size: 21px;
         line-height: 1.4;
     }
-    
+
     .featurette-heading {
         font-size: 50px;
     }
@@ -1769,7 +1769,6 @@ body.login-page .login-footer {
     max-height: 85vh;
     overflow-x: auto;
 }
-
 
 .bs-callout {
     padding: 20px;
@@ -1844,8 +1843,6 @@ body.login-page .login-footer {
     color: #5bc0de;
 }
 
-
-
 .frm-add-tag {
     padding: 67px 10px 7px;
 }
@@ -1853,34 +1850,37 @@ body.login-page .login-footer {
 .frm-add-tag input {
     float: left;
 }
+
 .frm-add-tag button {
     float: right;
     margin: 0;
 }
 
-
-.label-tag{
+.label-tag {
     font-size: 11px;
     padding: 2px 5px
 }
-.label-tag + .label-tag{
-    margin-left: 4px;   
+
+.label-tag + .label-tag {
+    margin-left: 4px;
 }
 
 /**
  * Control which allows choosing tags for a project
  */
-.select2-container .select2-results__option:empty{
-    display: none!important;
+.select2-container .select2-results__option:empty {
+    display: none !important;
 }
-.select-tag-container{
+
+.select-tag-container {
     margin-top: 10px;
 }
+
 .select-tag-container .select2,
 .select-tag-container .select2-container,
 .select-tag-container .select2-selection {
     display: block;
-    width: 100%!important;
+    width: 100% !important;
 }
 
 .select-tag-container .select2-selection {
@@ -1889,6 +1889,42 @@ body.login-page .login-footer {
 }
 
 .select-tag-container ul li.select2-selection__choice {
-    background-color: #f3f3f3!important;
+    background-color: #f3f3f3 !important;
 }
+
+/**
+ * Toastr
+ */
+#toast-container > .toast {
+    background-image: none !important;
+}
+
+#toast-container > .toast:before {
+    position: fixed;
+    font-family: FontAwesome;
+    font-size: 24px;
+    line-height: 18px;
+    float: left;
+    color: #FFF;
+    padding-right: 0.5em;
+    padding-top: 9px;
+    margin: 0 0.5em 0 -1.5em;
+}
+
+#toast-container > .toast-warning:before {
+    content: "\f003";
+}
+
+#toast-container > .toast-error:before {
+    content: "\f001";
+}
+
+#toast-container > .toast-info:before {
+    content: "\f05a";
+}
+
+#toast-container > .toast-success:before {
+    content: "\f002";
+}
+
 

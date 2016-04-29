@@ -31,6 +31,7 @@
                         syncPage(++page);
                     else {
                         console.info('syncing finished');
+                        $rootScope.$broadcast('data-sync-finished');
                         localStorage.setItem('last_sync', syncTime);
                         $rootScope.$broadcast('sync-completed');
                     }
@@ -40,6 +41,7 @@
             if (syncTime - (localStorage.getItem('last_sync') || 0) > 60 * 60) {
                 // minimum sync interval 1 hour
                 syncPage(0);
+                $rootScope.$broadcast('data-sync-started');
                 console.info('syncing starred repositories');
             }
             else {
@@ -59,8 +61,8 @@
                     var localRepo = e.target.result;
 
                     if (localRepo) {
-                    if (localRepo) 
-                        $.extend(localRepo, repository);
+                        if (localRepo)
+                            $.extend(localRepo, repository);
                         self.getStore().put(localRepo);
                     }
                     else {
