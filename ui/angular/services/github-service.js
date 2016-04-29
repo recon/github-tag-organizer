@@ -15,9 +15,6 @@
         return;
     }
 
-    console.log(config)
-
-
     var GithubService = function ($rootScope, $location, loaderService) {
         var self = this;
 
