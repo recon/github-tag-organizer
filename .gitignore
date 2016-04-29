@@ -1,6 +1,7 @@
 node_modules
 /template
 /.idea
+config.json
 
 Thumbs.db
 ehthumbs.db

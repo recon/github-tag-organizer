@@ -3,15 +3,29 @@
 
     const BrowserWindow = require('electron').remote.BrowserWindow;
     const apiRequests = require('superagent');
+    const appRoot = require('app-root-path');
+    const reqlib = require('app-root-path').require;
+
+    var config;
+
+    try {
+        config = (reqlib('config.json'));
+    } catch (e) {
+        alert("Unable to read config.json from project root. Did you add it?");
+        return;
+    }
+
+    console.log(config)
+
 
     var GithubService = function ($rootScope, $location, loaderService) {
         var self = this;
 
         // Your GitHub Applications Credentials
         var options = {
-            client_id: '358a3c2145191b6aae8f',
-            client_secret: 'd3f800d05bea0a628436eacc3144d89f819ef0a5',
-            scopes: ["user"] // Scopes limit access for OAuth tokens.
+            client_id: config.github.client_id,
+            client_secret: config.github.client_secret,
+            scopes: ["user"]
         };
 
         var loaderCallback = loaderService.listener('githubtoken');
