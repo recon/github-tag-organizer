@@ -17,6 +17,26 @@
         };
 
 
+        /**
+         * Will add the DEFAULT_TAG tag if the tag list  is empty, or remove it if oither tags are present
+         */
+        function ensureDefaultTagConsistency(repository) {
+            var defaultTagIndex = repository._user_tags.indexOf(DEFAULT_TAG);
+
+            if (defaultTagIndex > -1) {
+                repository._user_tags.splice(defaultTagIndex, 1);
+
+                return ensureDefaultTagConsistency(repository);
+            }
+
+            if (repository._user_tags.length === 0) {
+                repository._user_tags.push(DEFAULT_TAG);
+            }
+
+            return repository;
+        }
+
+
         this.getTags = function (callback) {
             if (!dbService.db)
                 return;
@@ -45,6 +65,16 @@
                 else {
                     callback(tags);
                 }
+            }
+        }
+
+        this.countUntaggedRepositores = function (callback) {
+            var count = getRepositoryObjectStore()
+                .index('tags')
+                .count(IDBKeyRange.only(DEFAULT_TAG));
+
+            count.onsuccess = function () {
+                callback(count.result)
             }
         }
 
@@ -88,6 +118,7 @@
                 }
                 console.log("adding tag to project: " + tagName);
                 repo._user_tags.push(tagName);
+                repo = ensureDefaultTagConsistency(repo);
 
                 getRepositoryObjectStore('readwrite').put(repo).onsuccess = function () {
                     callback();
@@ -111,6 +142,7 @@
 
                 console.log("removing tag to project: " + tagName);
                 repo._user_tags.splice(index, 1);
+                repo = ensureDefaultTagConsistency(repo);
 
                 getRepositoryObjectStore('readwrite').put(repo).onsuccess = function () {
                     callback();

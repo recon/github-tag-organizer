@@ -41,7 +41,7 @@
                     <a ng-click="selectTag({name: 'default'})">
                         <span class="icon fa fa-exclamation-triangle"></span>
                         <span class="title">no tags</span>
-                        <span class="badge pull-right">n/a</span>
+                        <span class="badge pull-right">{{untaggedCount}}</span>
                     </a>
                 </li>
                 <li ng-repeat="tag in tags | orderBy:'name'"

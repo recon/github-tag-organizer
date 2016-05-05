@@ -11,6 +11,7 @@
             };
             $scope.addTagFormIsVisible = false;
             $scope.shared = sharedData;
+            $scope.untaggedCount = null;
 
             $scope.$on('bootstrap-completed', function () {
 
@@ -56,6 +57,9 @@
                     $scope.$apply();
                 });
 
+                tagService.countUntaggedRepositores(function (count) {
+                    $scope.untaggedCount = count;
+                });
             };
 
 
