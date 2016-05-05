@@ -1931,6 +1931,13 @@ body.login-page .login-footer {
 /**
  * Misc
  */
-.navbar-header{
+.navbar-fixed-top .navbar-header{
     padding-left: 30px;
+}
+
+.label + .btn-xs{
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height:1.3;
+    font-size: 12px;
 }
