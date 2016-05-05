@@ -1928,3 +1928,9 @@ body.login-page .login-footer {
 }
 
 
+/**
+ * Misc
+ */
+.navbar-header{
+    padding-left: 30px;
+}

@@ -50,26 +50,6 @@
         "dist/checkbox3.min.css"
       ]
     },
-    "datatables": {
-      "main": [
-        "media/css/jquery.dataTables.min.css",
-        "media/css/dataTables.bootstrap.css",
-        "media/js/jquery.dataTables.min.js",
-        "media/js/dataTables.bootstrap.min.js"
-      ]
-    },
-    "ace-builds": {
-      "main": [
-        "src/ace.js",
-        "src/mode-html.js",
-        "src/theme-github.js"
-      ]
-    },
-    "Chart.js": {
-      "main": [
-        "Chart.min.js"
-      ]
-    },
     "select2": {
       "main": [
         "dist/js/select2.full.min.js",
