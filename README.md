@@ -8,9 +8,12 @@ repositories and organize them using custom tags.
 It uses [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to store information locally about 
 the starred repositories, and synchronizes (max. 1 times per hour) via GitHub oAuth. 
 
-
 It's an experimental project, built for the sole purpose of getting accustomed with NodeJS/Electron environment and 
 some HTML5 features.
+
+
+![screenshot](misc/screenshot.jpg)
+
 
 The interface is based on the [Flat FlatAdmin v2](http://tui2tone.github.io/flat-admin-bootstrap-templates/html/pages/)
 bootstrap template, modified accordingly.
